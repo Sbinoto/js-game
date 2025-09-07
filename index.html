@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <div class="main">
+        <table class="stats">
+            <tr>
+                <th colspan="2">Current</th>
+            </tr>
+            <tr>
+                <th class="IMGTh"><img src="./assets/clock.png" class="clockIMG"></th>
+                <td class="current score">0</td>
+            </tr>
+            <tr>
+                <th class="IMGTh"><img src="./assets/pixelart_skull.png" class="skullIMG"></th>
+                <td class="current kills">0</td>
+            </tr>
+            <tr>
+                <th colspan="2">record</th>
+            </tr>
+            <tr>
+                <th class="IMGTh"><img src="./assets/clock.png" class="clockIMG"></th>
+                <td class="best score">0</td>
+            </tr>
+            <tr>
+                <th class="IMGTh"><img src="./assets/pixelart_skull.png" class="skullIMG"></th>
+                <td class="best kills">0</td>
+            </tr>
+        </table>
+        <div class="display">
+            <div class="filler"></div>
+            <div class="canvas">
+                <div class="startScreen">Press Space to Start</div>
+                <div class="deathScreen">
+                    <h1>You Died</h1>
+                </div>
+            </div>
+            <div class="HUD">
+                <div class="health">
+                    <img class="heartIMG" src="./assets/love-always-wins.png">
+                    <img class="heartIMG" src="./assets/love-always-wins.png">
+                    <img class="heartIMG" src="./assets/love-always-wins.png">
+                </div>
+                <div class="munition">
+                    <img class="bulletIMG" src="./assets/bullet.png">
+                    <div class="playerAmmo">0</div>
+                </div>
+            </div>
+        </div>
+        <div class="info">
+            <div class="music">
+                <div class="title"></div>
+                <div class="names"></div>
+                <div class="extras"></div>
+            </div>
+            <div class="credits">
+                <div>Ammunition - Freepik - Flaticon</div>
+                <div>Heart - frelayasia - Flaticon</div>
+                <div>Watch - cubydesign - Flaticon</div>
+                <div>Skull - FancySnacks - OpenGamerArt</div>
+                <div>Font - YukiPixels - 1001fonts</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
