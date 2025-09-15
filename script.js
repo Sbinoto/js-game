@@ -114,7 +114,7 @@ const mountainKing = new music("In the Hall of the Mountain King", "./assets/mus
 const valkyries = new music("Ride of the Valkyries", "./assets/music/valkyries.mp3", ["Richard Wagner", "Classical 8 Bit"], "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License");
 const williamTell = new music("William Tell Overture", "./assets/music/william-tell.mp3", ["Gioachino Rossini", "Classical 8 Bit"], "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License");
 
-const tracks=[carmen, canCan, mountainKing, valkyries, williamTell]
+const tracks = [carmen, canCan, mountainKing, valkyries, williamTell]
 
 class player {
 
@@ -414,7 +414,7 @@ class game {
         for (const heart of hearts) {
             heart.style.visibility = "visible"
         };
-        this.song=false;
+        this.song = false;
         this.killCount = 0;
         this.score = 0;
         this.player = new player();
@@ -456,13 +456,13 @@ class game {
                         if (!this.running) {
                             startScreen.style.visibility = "hidden";
                             toggleAnimation("on");
-                            if (this.song){
+                            if (this.song) {
                                 this.song.play();
                             };
                         } else {
                             toggleAnimation("off");
                             startScreen.style.visibility = "visible"
-                            if (this.song){
+                            if (this.song) {
                                 this.song.pause();
                             };
                         };
@@ -499,13 +499,13 @@ class game {
         playerAmmo.textContent = this.player.munition;
     };
 
-    musicHandler(){
-        if (!this.song){
-            const song=tracks[Math.floor(Math.random()*6)];
-            songTitle.textContent=song.title;
-            songNames.textContent=song.names;
-            songExtras.textContent=song.extras;
-            this.song=new Audio(song.url);
+    musicHandler() {
+        if (!this.song) {
+            const song = tracks[Math.floor(Math.random() * 5)];
+            songTitle.textContent = song.title;
+            songNames.textContent = song.names;
+            songExtras.textContent = song.extras;
+            this.song = new Audio(song.url);
             this.song.play()
         };
     };
@@ -534,9 +534,9 @@ class game {
             recordScore.textContent = Math.floor(this.record.score);
         };
         deathScreen.style.visibility = "visible";
-        if (this.song){
+        if (this.song) {
             this.song.pause();
-            this.song=false
+            this.song = false
         };
     };
 
@@ -555,7 +555,7 @@ class game {
             };
         };
         requestAnimationFrame((currentTime) => this.mainLoop(currentTime))
-    }
+    };
 };
 
 const play = new game()
