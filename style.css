@@ -108,6 +108,12 @@ td {
         background-color: orange;
         z-index: 2;
     }
+    &.heal{
+        height: 28px;
+        width:28px;
+        background-color: greenyellow;
+        z-index: 2;
+    }
     &.bullet{
         background-color: white;
         box-shadow: 0px 0px 30px 3px white;

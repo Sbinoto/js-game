@@ -150,6 +150,11 @@ class player {
             this.invincibilityPeriod = 2500;
         };
     };
+
+    heal() {
+        hearts[this.health].style.visibility = "visible";
+        this.health++;
+    }
 };
 
 class enemy {
@@ -242,6 +247,44 @@ class ammo {
             };
     };
 };
+
+class health {
+
+    constructor() {
+        this.node = document.createElement("div");
+        this.node.setAttribute("class", "sprite heal");
+        canvas.appendChild(this.node);
+        this.node.size = getSize(this.node);
+        this.lastSpawn=Date.now();
+        this.active=false
+    };
+
+    show(){
+        this.active=true;
+        this.lastSpawn=Date.now();
+        spawn("in", this.node);
+        this.node.style.visibility = "visible"
+
+    }
+
+    static healthHandler() {
+        if (Date.now()-play.health.lastSpawn>=10000 && !play.health.active){
+            play.health.show()
+        };
+        if (detectCollision(play.player.node, play.health.node) && play.health.active) {
+            if (play.player.health<3){
+                play.player.heal();
+                play.health.active=false;
+            };
+        };
+        if (!play.health.active){
+            play.health.node.style.visibility = "hidden";
+        } else{
+            play.health.node.style.visibility = "visible";
+        };
+    }
+
+}
 
 class bullet {
 
@@ -421,6 +464,7 @@ class game {
         this.wasd = [false, false, false, false];
         this.enemies = [];
         this.munition = [];
+        this.health = new health();
         for (let i = 4; i >= 0; i--) {
             const enem = new enemy();
             spawn("out", enem.node);
@@ -522,6 +566,7 @@ class game {
         enemy.enemyHandler();
         this.UIHandler();
         this.musicHandler();
+        health.healthHandler();
     };
 
     playerDead() {
